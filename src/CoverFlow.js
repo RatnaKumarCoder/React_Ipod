@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//NowPlaying-Menu(CoverFlow)
 function CoverFlow(props){
     return(
         <Cover color = {props.color}>

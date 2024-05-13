@@ -5,6 +5,7 @@ import Games from "./Games";
 import Musics from "./Music";
 import CoverFlow from "./CoverFlow";
 
+//Menu where all the 4 options present
 class Menu extends React.Component{
     //constructor
     constructor(){
@@ -12,6 +13,7 @@ class Menu extends React.Component{
     }
 
     render(){
+        //activeItem and activePage from App.js as props to track the current activeItem of Menu and activePage
         const {activeItem,activePage} = this.props;
         return(
             <>

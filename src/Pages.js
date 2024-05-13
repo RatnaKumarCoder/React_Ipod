@@ -2,7 +2,7 @@ import styled from "styled-components";
 import sound from "./audio/pushpa.mp3"
 
 
-
+//to update the activePage on the screen whenever a option in menu is clicked
 const PageScreen=styled.div`
 height: 100%;
 width: 100%;

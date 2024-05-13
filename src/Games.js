@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//Games Menu
 function Games(props){
     return(
 

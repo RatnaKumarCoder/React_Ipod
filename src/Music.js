@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//Music Menu
 function Musics(props){
     return(
         <Music color={props.color}>

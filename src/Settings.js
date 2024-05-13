@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//setting Menu
 function Settings(props){
     return(
         <Setting color={props.color}>

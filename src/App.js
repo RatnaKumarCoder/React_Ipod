@@ -6,7 +6,7 @@ import Page from "./Pages";
 
 
 class App extends React.Component{
-
+    //state to initialize and track the activeItem of menu and activePage 
   constructor(){
     super();
     this.state = {
@@ -23,10 +23,12 @@ class App extends React.Component{
     <>
       <BackCover>
         <MainScreen>
+            {/* display screen */}
           <Screen>
             {this.state.activePage !== "Home" ? <Page activePage={this.state.activePage}/>: <Menu activeItem={this.state.activeItem}/> }
           </Screen>
 
+          {/* Scrollling wheel */}
           <Navigation id="wheel" onMouseOver={this.rotateWheel}>
             <Keys>
             <SpanMenu onClick={()=>{this.changePageToHomeScreen()}}> MENU </SpanMenu> 
@@ -45,85 +47,8 @@ class App extends React.Component{
   }
 
 
-//   rotate= (event) => {
-//     // Get the rotation angle
-//     var newAngle = event.detail.distanceFromLast;
 
-//     // Debugging: Log the rotation angle
-//     console.log("Rotation Angle:", newAngle);
-
-//     // Check if rotation is significant enough
-//     if (Math.abs(newAngle) >= 1.5) {
-//         // Update activeItem based on the rotation direction
-//         this.setState(prevState => {
-//             const { activeItem } = prevState;
-//             let nextItem = activeItem;
-
-//             // Update activeItem based on its current value and rotation direction
-//             if (newAngle <= 0) {
-//                 // Rotate left
-//                 switch (activeItem) {
-//                     case 'NowPlaying':
-//                         nextItem = 'Music';
-//                         break;
-//                     case 'Music':
-//                         nextItem = 'Games';
-//                         break;
-//                     case 'Games':
-//                         nextItem = 'Settings';
-//                         break;
-//                     case 'Settings':
-//                         nextItem = 'NowPlaying';
-//                         break;
-//                     default:
-//                         break;
-//                 }
-              
-//             } else {
-//                 // Rotate right
-//                 switch (activeItem) {
-//                     case 'NowPlaying':
-//                         nextItem = 'Music';
-//                         break;
-//                     case 'Music':
-//                         nextItem = 'Games';
-//                         break;
-//                     case 'Games':
-//                         nextItem = 'Settings';
-//                         break;
-//                     case 'Settings':
-//                         nextItem = 'NowPlaying';
-//                         break;
-//                     default:
-//                         break;
-//                 }
-//             }
-
-//             return { activeItem: nextItem };
-//         });
-//     }
-// }
-
-
-//   rotateWheel = () => {
-//     var wheel = document.getElementById('wheel');
-//     var activeRegion = new ZingTouch.Region(wheel);
-
-
-//     // Increment 'enter' count
-//     this.setState(prevState => ({
-//         enter: prevState.enter + 1
-//     }));
-//     if (this.state.enter < 200) {
-//         // Bind rotate gesture
-//         activeRegion.bind(wheel, 'rotate', this.rotate);
-//       } else {
-//         // Debugging: Log message if 'enter' count exceeds 2
-//         console.log("Not allowed to enter");
-//       }
-
-// }
-
+//functional logic to rotate wheel
 rotateWheel = () => {
   var containerElement = document.getElementById('wheel');
   var activeRegion = new ZingTouch.Region(containerElement);
@@ -248,9 +173,8 @@ else if(this.state.activeItem === 'Settings'){
   }         
 }
 
-
+//changing page to homescreen
 changePageToHomeScreen = () => {
-  //changing pages acc to the command
       this.setState({
           activeItem : this.state.activeItem,
           activePage : 'Home'
@@ -258,80 +182,12 @@ changePageToHomeScreen = () => {
   
 }
 
-menuPage=() => {
-  console.log(this.state);
-}
 
     
       
   }
 
-  // rotateWheel = () => {
-  //   // Increment enter count
-  //   this.setState(prevState => ({
-  //     enter: prevState.enter + 1
-  //   }));
   
-  //   // Check if enter count is less than 2
-  //   if (this.state.enter < 2) {
-  //     var containerElement = document.getElementById('wheel');
-  //     var activeRegion = new ZingTouch.Region(containerElement);
-  //     var change = 0;
-  
-  //     // Bind rotate gesture only once
-  //     activeRegion.bind(containerElement, 'rotate', event => {
-  //       // Increment change
-  //       change++;
-  
-  //       // Handle rotation every 15 changes
-  //       if (change === 15) {
-  //         // Reset change count
-  //         change = 0;
-  
-  //         // Get the rotation direction
-  //         var newAngle = event.detail.distanceFromLast;
-  //         var direction = newAngle < 0 ? 'left' : 'right';
-  
-  //         // Update state based on direction and current page
-  //         this.setState(prevState => {
-  //           const { activePage, activeItem } = prevState;
-  //           if (activePage === 'Home') {
-  //             if (activeItem === 'NowPlaying') {
-  //               return { activeItem: 'Music' };
-  //             } else if (activeItem === 'Music') {
-  //               return { activeItem: 'Games' };
-  //             } else if (activeItem === 'Games') {
-  //               return { activeItem: 'Settings' };
-  //             } else if (activeItem === 'Settings') {
-  //               return { activeItem: 'NowPlaying' };
-  //             }
-  //           } else if (activePage === 'Music') {
-  //             if (activeItem === 'MyMusic') {
-  //               return { activeItem: 'Artists' };
-  //             } else if (activeItem === 'Artists') {
-  //               return { activeItem: 'MyMusic' };
-  //             }
-  //           }
-  //           return null; // Return null if no state update is needed
-  //         });
-  //       }
-  //     });
-  //   } else {
-  //     console.log("Not allowed to enter");
-  //   }
-  // };
-  
-  
-
-
-
-
-
-
-
-
-
-// margin: "40px auto";
 
 const BackCover = styled.div`
 height: 500px;
